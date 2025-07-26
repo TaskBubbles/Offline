@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MDXHXLT5');</script>
+  <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta name="viewport" content="user-scalable=no"/>
+    <meta name="description" content="A bubble layout for managing tasks">
+    <link rel="apple-touch-icon" href="/images/Logo-192.png" sizes="192x192">
+    <meta name="theme-color" content="#f0edfc"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Task Bubbles</title>
+    <link rel="icon" type="image/x-icon" href="./images/Logo.ico?">
+    <link rel="manifest" href="manifest.json">
+  </head>
+
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2PLJRKLH0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-R2PLJRKLH0');
+  </script>
+
+  <body>   
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDXHXLT5"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+
+    <div class="theme-div">
+      <!-- Rounded switch -->
+      <label class="theme-switch">
+        <label for="theme-input" aria-label="theme switch"></label>
+        <input type="checkbox" id="theme-input" onclick="ToggleTheme()">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="eye-div">
+      <p id="eye-text"></p>
+        <!-- Rounded switch -->
+      <label class="eye-switch">
+        <label for="eye-input" aria-label="eye switch"></label>
+        <button class="eye-input" onclick="ToggleCompletedTasks()"></button>
+        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110">
+          <g id="Eye" class="eyeIcon">
+            <g>
+              <path class="cls-1" d="M37.57,53.86c-12.19,0-22.11-9.92-22.11-22.11s9.92-22.11,22.11-22.11,22.11,9.92,22.11,22.11-9.92,22.11-22.11,22.11ZM37.57,14.62c-9.45,0-17.13,7.69-17.13,17.13s7.69,17.13,17.13,17.13,17.13-7.69,17.13-17.13-7.69-17.13-17.13-17.13Z"/>
+              <path class="cls-1" d="M37.57,53.86C17.59,53.86,1.87,34.13,1.21,33.29l-1.21-1.54,1.21-1.54c.66-.84,16.38-20.57,36.36-20.57s35.7,19.73,36.36,20.57l1.21,1.54-1.21,1.54c-.66.84-16.38,20.57-36.36,20.57ZM6.44,31.75c4,4.47,16.61,17.13,31.13,17.13s27.13-12.66,31.13-17.13c-4-4.47-16.61-17.13-31.13-17.13S10.44,27.28,6.44,31.75Z"/>
+              <path class="cls-1" d="M37.57,21.16c-1.12,0-2.19.18-3.21.5,1.89.81,3.21,2.68,3.21,4.86,0,2.92-2.37,5.29-5.29,5.29-2.16,0-4.01-1.29-4.84-3.15-.3.97-.46,2.01-.46,3.08,0,5.85,4.74,10.59,10.59,10.59s10.59-4.74,10.59-10.59-4.74-10.59-10.59-10.59Z"/>
+            </g>
+          </g>
+          <g id="Eye_Off" class="eyeIcon hidden">
+            <g>
+              <path class="cls-2" d="M37.57,53.86c-12.19,0-22.11-9.92-22.11-22.11s9.92-22.11,22.11-22.11,22.11,9.92,22.11,22.11-9.92,22.11-22.11,22.11ZM37.57,14.62c-9.45,0-17.13,7.69-17.13,17.13s7.69,17.13,17.13,17.13,17.13-7.69,17.13-17.13-7.69-17.13-17.13-17.13Z"/>
+              <path class="cls-2" d="M37.57,53.86C17.59,53.86,1.87,34.13,1.21,33.29l-1.21-1.54,1.21-1.54c.66-.84,16.38-20.57,36.36-20.57s35.7,19.73,36.36,20.57l1.21,1.54-1.21,1.54c-.66.84-16.38,20.57-36.36,20.57ZM6.44,31.75c4,4.47,16.61,17.13,31.13,17.13s27.13-12.66,31.13-17.13c-4-4.47-16.61-17.13-31.13-17.13S10.44,27.28,6.44,31.75Z"/>
+              <rect class="cls-2" x="-7.31" y="27.92" width="86.05" height="7.07" rx="3.54" ry="3.54" transform="translate(-11.78 34.46) rotate(-45)"/>
+            </g>
+          </g>
+        </svg>
+
+      </label>
+    </div>
+
+    <div class="autoscaling-div">
+      <button class="autoscaling-input scale-pulse" onclick="resetZoom();">
+        <svg id="autoscaling-icon" class="hidden" width="50" height="50">
+          <path class="cls-1" d="M.2,32.7h5.9c.1,0,.2.1.2.2v10.7h10.7c.1,0,.2.1.2.2v5.9c0,.1-.1.2-.2.2H.2C.1,50,0,49.9,0,49.8v-16.8C0,32.8.1,32.7.2,32.7Z"/>
+          <path class="cls-1" d="M32.9,43.7h10.7v-10.7c0-.1.1-.2.2-.2h5.9c.1,0,.2.1.2.2v16.8c0,.1-.1.2-.2.2h-16.8c-.1,0-.2-.1-.2-.2v-5.9c0-.1.1-.2.2-.2Z"/>
+          <path class="cls-1" d="M.2,0h16.8c.1,0,.2.1.2.2v5.9c0,.1-.1.2-.2.2H6.3v10.7c0,.1-.1.2-.2.2H.2C.1,17.3,0,17.2,0,17.1V.2C0,.1.1,0,.2,0Z"/>
+          <path class="cls-1" d="M32.9,0h16.8c.1,0,.2.1.2.2v16.8c0,.1-.1.2-.2.2h-5.9c-.1,0-.2-.1-.2-.2V6.3h-10.7c-.1,0-.2-.1-.2-.2V.2c0-.1.1-.2.2-.2Z"/>
+        </svg></button>
+    </div>
+
+    <div id="installButtonContainer">
+      <button id="installButton" class="scale-pulse">Install</button>
+    </div>
+
+    <button class="info-button" onclick="ToggleInfoDiv();">!</button>
+
+    <div id="info-container">
+      <div id="info-background" onclick="ToggleInfoDiv();"></div>
+      <div id="info-div">
+        <h1>Thank you!</h1>
+        <p>
+          I've been working on Task Bubbles for a while.
+          I'm grateful to be able to share it with you!
+        </p>
+
+        <br>
+        <h2>If you got some value, consider donating! </h2>
+        <p>
+          I worked hard to create this for you.
+          Donating will motivate me to keep working harder!
+        </p>
+        <br>
+        <div class="disclamer">
+          <h3>Disclamer</h3>
+          <p> This demo is provided "as is." Use at your own risk.
+             I am not liable for any use or misuse.</p>
+        </div>
+        <br></br>
+        <div class="info-links">        
+          <a href="https://www.instagram.com/guy.x10/" target=”_blank”>Follow</a> 
+          <div id="donate-button-container">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+            PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'3CZUAXXKRU6YN',
+            image: {
+            src:'https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif',
+            alt:'Donate with PayPal button',
+            title:'PayPal - The safer, easier way to pay online!',
+            }
+            }).render('#donate-button');
+            </script>
+            </div>
+          <a href="mailto:taskbubblesapp@gmail.com" target=”_blank”>Contact</a>
+        </div>
+
+        <br>
+      </div>
+    </div>
+
+    
+    <!-- add task form-->
+
+    <div class="close-task-form" onclick="ConfirmTaskCreation();"></div>
+
+    <div class="add-task">
+
+      <div class="add-task-backdrop"></div>
+
+      <div class="completed-div">
+        <label class="completed-switch">
+          <label for="completed-input" aria-label="completed switch"></label>
+          <input type="checkbox" id="completed-input" onclick="SetBubbleCompleted(this.checked)">
+          <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.72 86.72">
+            <g id="Checkmark">
+              <circle class="completed-bg" cx="43.36" cy="43.36" r="40.86"/>
+              <path class="completed-checkmark hidden" d="M33.59,59.76,66.68,26.68h0c1.46,1.46,1.46,3.84,0,5.29l-27.79,27.79c-1.46,1.46-3.84,1.46-5.29,0l-13.56-13.56c-1.46-1.46-1.46-3.84,0-5.29,1.46-1.46,3.84-1.46,5.29,0l10.92,10.92,25.14-25.14c1.46-1.46,3.84-1.46,5.29,0Z"/>
+            </g>
+          </svg>
+        </label>
+      </div>
+
+      <h1 class="heading">Add Task</h1>
+
+      <div class="input-group">
+        <label for="task-input"></label>
+        <input type="text" maxlength="250" id="title-input" placeholder="Task Name"/>
+      </div>
+
+      <div class="scaleSliderContainer">
+        <input type="range" id="scaleSlider" min="0.1" max="3" value="1" step="any" oninput="editedBubble.SetScale(value)" list="markers" />
+
+        <datalist id="markers">
+          <option value="0.1"></option>
+          <option value="0.5"></option>
+          <option value="1"></option>
+          <option value="1.5"></option>
+          <option value="2"></option>
+          <option value="2.5"></option>
+          <option value="3"></option>
+        </datalist>
+      </div>
+
+      <div class="input-group" id="colorButtons">
+        <button class="colorBtn circle-button" value="0" aria-label="Orange"></button>
+        <button class="colorBtn circle-button" value="1" aria-label="Yellow"></button>
+        <button class="colorBtn circle-button" value="2" aria-label="Greem"></button>
+        <button class="colorBtn circle-button" value="3" aria-label="Blue"></button>
+        <button class="colorBtn circle-button" value="4" aria-label="Purple"></button>
+      </div>
+
+      <div class="btns">
+        <button class="delete-btn" onclick="DeleteTask();" alt="Delete Task Button">          
+          <img src="images/DeleteIcon.svg" alt="delete" class="delete-icon">
+        </button>
+        <button class="add-btn" onclick="ConfirmTaskCreation();" alt="Confirm Task Creation Button">Add</button>
+        <div class="datetime-wrapper">
+          <div class="calendar-wrapper circle-button">
+            <input type="datetime-local" id="datetime-picker">
+            <img src="images/calendar.svg" alt="calendar" class="calendar-icon">
+          </div>
+  
+          <div class="datetime-display">
+            <p id="date-display"></p>
+            <p id="time-display"></p>
+          </div>
+      </div>
+      </div>
+    </div>
+    <script src="matter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <script src="audioManager.js"></script>
+    <script src="variables.js"></script>
+    <script src="TaskBubble.js"></script>
+    <script src="AddTaskButton.js"></script>
+    <script src="app.js"></script>
+    <script src="save.js"></script>
+    <script src="zoom.js"></script>
+    <script src="installButton.js"></script>
+  </body>
+</html>
