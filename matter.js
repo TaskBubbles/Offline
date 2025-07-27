@@ -905,15 +905,9 @@
                  * @method create
                  * @param {number} x
                  * @param {number} y
-                 * @param {vector} [output]
                  * @return {vector} A new vector
                  */
-                Vector.create = function (x, y, output) {
-                    if (output) {
-                        output.x = x || 0;
-                        output.y = y || 0;
-                        return output;
-                    }
+                Vector.create = function (x, y) {
                     return { x: x || 0, y: y || 0 };
                 };
 
