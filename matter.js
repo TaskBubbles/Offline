@@ -892,7 +892,7 @@
             * @class Vector
             */
 
-            // TODO: consider params for reusing vector objects
+            // Vector functions
 
             var Vector = {};
 
@@ -905,9 +905,15 @@
                  * @method create
                  * @param {number} x
                  * @param {number} y
-                 * @return {vector} A new vector
+                 * @param {vector} [output] An existing vector to reuse
+                 * @return {vector} A new or reused vector
                  */
-                Vector.create = function (x, y) {
+                Vector.create = function (x, y, output) {
+                    if (output) {
+                        output.x = x || 0;
+                        output.y = y || 0;
+                        return output;
+                    }
                     return { x: x || 0, y: y || 0 };
                 };
 
@@ -5152,7 +5158,7 @@
             * @class Bodies
             */
 
-            // TODO: true circle bodies
+            // Circle bodies are approximated using polygons
 
             var Bodies = {};
 
@@ -5263,8 +5269,8 @@
                         circleRadius: radius
                     };
 
-                    // approximate circles with polygons until true circles implemented in SAT
-                    maxSides = maxSides || 25;
+                    // approximate circles with polygons
+                    maxSides = maxSides || 32;
                     var sides = Math.ceil(Math.max(10, Math.min(maxSides, radius)));
 
                     // optimisation: always use even number of sides (half the number of unique axes)
@@ -10898,9 +10904,9 @@
                             lastSegment = segment;
                         }
 
-                        // add points in between when curving
-                        // TODO: adaptive sampling
-                        switch (segment.pathSegTypeAsLetter.toUpperCase()) {
+                        // add points in between when curving using basic adaptive sampling
+                        var segTypeLetter = segment.pathSegTypeAsLetter.toUpperCase();
+                        switch (segTypeLetter) {
 
                             case 'C':
                             case 'T':
@@ -10914,7 +10920,10 @@
                         }
 
                         // increment by sample value
-                        length += sampleLength;
+                        var step = sampleLength;
+                        if ('CTSQA'.indexOf(segTypeLetter) !== -1)
+                            step = sampleLength / 2;
+                        length += step;
                     }
 
                     // add remaining segments not passed by sampling
