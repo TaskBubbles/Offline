@@ -1,12 +1,12 @@
 
 const ColorScheme = [
-  '#ff7675ff',
-  '#ffeaa7ff',
-  '#55efc4ff',
-  '#74b9ffff',
-  '#a29bfeff',
-  '#f4f4f8ff',
-  '#1b1b25ff'
+  '#ff9f43ff',
+  '#feca57ff',
+  '#1dd1a1ff',
+  '#54a0ffff',
+  '#5f27cdff',
+  '#f7f7f7ff',
+  '#222831ff'
 ];
 let defaultBubbleSize = 200;
 let defaultTaskTitle = "Task Name";
