@@ -3,12 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --dark-color: #1b1b25;
+  --light-color: #f4f4f8;
+}
+
 html,
 body {
   margin: 0;
   touch-action: pan-x pan-y;
   height: 100%;
-  background-color: #f0edfc;
+  background-color: var(--light-color);
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
@@ -34,7 +39,9 @@ body {
   width: 200%;
   height: 90%;
   border-radius: 50% 50% 0 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .add-task {
@@ -50,6 +57,11 @@ body {
   height: min;
   transition: all 0.3s;
   padding-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
 }
 
 .completed-div {
@@ -70,13 +82,13 @@ body {
 
 .completed-bg {
   fill: #f2f2f2;
-  stroke: #29262d;
+  stroke: var(--dark-color);
   stroke-miterlimit: 10;
   stroke-width: 5px;
 }
 
 .completed-checkmark {
-  fill: #29262d;
+  fill: var(--dark-color);
   fill-rule: evenodd;
 }
 
@@ -113,7 +125,7 @@ body {
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   border-radius: 5rem;
-  background: #110d1cff; /* Grey background */
+  background: var(--dark-color);
   box-shadow: 1px 3px 5px 0px #0003;
 
   width: 47rem;
@@ -134,7 +146,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #110d1c;
+  background: var(--dark-color);
   cursor: pointer;
 }
 
@@ -168,7 +180,7 @@ body {
 
 .sizeBtnDiv {
   border-radius: 50%;
-  background-color: rgb(41, 36, 77);
+  background-color: var(--dark-color);
 }
 
 .btns {
@@ -190,13 +202,13 @@ body {
 }
 
 .btns button.add-btn {
-  background-color: #29262d;
+  background-color: var(--dark-color);
   color: white;
   height: 6rem;
   width: 16rem;
 }
 .btns button.add-btn:active {
-  background-color: #50505f;
+  background-color: #44485a;
   border: 1.5px solid #fffc;
   height: 6rem;
 }
@@ -346,7 +358,7 @@ body {
 }
 
 .eye-color {
-  fill: #110d1c; /* Default color */
+  fill: var(--dark-color); /* Default color */
 }
 
 .theme-div {
@@ -376,7 +388,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #110d1c;
+  background-color: var(--dark-color);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -388,7 +400,7 @@ body {
   width: 38px;
   left: 6px;
   bottom: 6px;
-  background-color: #f0edfc;
+  background-color: var(--light-color);
   filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
 
   -webkit-transition: 0.3s;
@@ -396,11 +408,11 @@ body {
 }
 
 input:checked + .slider::before {
-  background-color: #110d1c;
+  background-color: var(--dark-color);
   filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
 }
 input:checked + .slider {
-  background-color: #f0edfc;
+  background-color: var(--light-color);
   filter: drop-shadow(1px 3px 5px rgba(255, 255, 255, 0.2));
 }
 input:checked + .slider:before {
@@ -453,10 +465,12 @@ input:checked + .slider:before {
   position: absolute;
 }
 #info-div {
-  background-color: #110d1cff;
-  color: #f0edfc;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
   border-radius: 3rem;
-  box-shadow: 1px 3px 20px 0px #0005;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  color: var(--dark-color);
   padding: 50px;
   font-size: 1rem;
   max-width: 98%;
