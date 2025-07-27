@@ -37,7 +37,7 @@ class AddTaskButton {
         // Adjust the font size based on the current scale
         var fontSize = 80 * scale;
         context.fillStyle = '#fff';
-        context.font = fontSize + 'px Arial';
+        context.font = fontSize + 'px Poppins';
         context.textAlign = 'center';
         context.textBaseline = 'middle';
 
