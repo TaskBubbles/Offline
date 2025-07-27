@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 :root {
-  --dark-color: #1b1b25;
-  --light-color: #f4f4f8;
+  --dark-color: #222831;
+  --light-color: #f7f7f7;
+  --accent1: #ff9f43;
+  --accent2: #feca57;
+  --accent3: #1dd1a1;
+  --accent4: #54a0ff;
+  --accent5: #5f27cd;
 }
 
 html,
@@ -13,7 +18,7 @@ body {
   margin: 0;
   touch-action: pan-x pan-y;
   height: 100%;
-  background-color: var(--light-color);
+  background: linear-gradient(135deg, var(--light-color) 0%, #e9ecef 100%);
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
@@ -208,13 +213,13 @@ body {
   width: 16rem;
 }
 .btns button.add-btn:active {
-  background-color: #44485a;
+  background-color: #393e46;
   border: 1.5px solid #fffc;
   height: 6rem;
 }
 
 .btns button.delete-btn {
-  background-color: #d82137;
+  background-color: var(--accent5);
   color: white;
   border: 1.5px solid #fffc;
   height: 5rem;
@@ -225,7 +230,7 @@ body {
 }
 
 .btns button.delete-btn:active {
-  background-color: #f04458;
+  background-color: #8146d8;
   border: 1.5px solid #fffc;
 }
 
@@ -494,7 +499,7 @@ h2 {
 }
 
 .disclamer {
-  color: #d82137;
+  color: var(--accent5);
 }
 
 .info-links {
@@ -509,9 +514,9 @@ a {
   background-color: #fff;
   font-weight: 700;
   text-decoration: none;
-  color: rgb(65, 15, 200);
-  text-shadow: 0 0 10px rgba(65, 15, 200, 0.2);
-  box-shadow: 0 0 10px rgba(65, 15, 200, 0.5);
+  color: var(--accent4);
+  text-shadow: 0 0 10px rgba(84, 160, 255, 0.2);
+  box-shadow: 0 0 10px rgba(84, 160, 255, 0.5);
   padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -520,7 +525,7 @@ a {
 }
 
 a:hover {
-  box-shadow: 0 0 20px rgba(65, 15, 200, 1);
+  box-shadow: 0 0 20px rgba(84, 160, 255, 1);
 }
 #donate-button {
   width: 12svh;
@@ -530,9 +535,9 @@ a:hover {
   background-color: #fff;
   font-weight: 700;
   text-decoration: none;
-  color: rgb(65, 15, 200);
-  text-shadow: 0 0 10px rgba(65, 15, 200, 0.2);
-  box-shadow: 0 0 10px rgba(65, 15, 200, 1);
+  color: var(--accent4);
+  text-shadow: 0 0 10px rgba(84, 160, 255, 0.2);
+  box-shadow: 0 0 10px rgba(84, 160, 255, 1);
   padding: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -541,7 +546,7 @@ a:hover {
 }
 
 #donate-button-container:hover {
-  box-shadow: 0 0 20px rgba(65, 15, 200, 1);
+  box-shadow: 0 0 20px rgba(84, 160, 255, 1);
 }
 #vibrateBtn {
   position: absolute;
@@ -549,4 +554,19 @@ a:hover {
 }
 .hidden {
   display: none;
+}
+
+.add-task.active, #info-container.active {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
