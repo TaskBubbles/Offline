@@ -115,6 +115,7 @@ body {
   border-radius: 5rem;
   background-color: #fff;
   border: none;
+  outline: none;
   text-align: center;
   font-size: 2rem;
   margin: 1rem;
@@ -282,6 +283,7 @@ body {
   background: none;
   border: none;
   padding: 50px;
+  cursor: pointer;
 }
 
 #autoscaling-icon {
@@ -349,6 +351,7 @@ body {
 .eye-switch {
   display: inline-block;
   width: 100px;
+  cursor: pointer;
 }
 
 .eyeIcon {
