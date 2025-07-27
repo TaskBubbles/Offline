@@ -8,7 +8,7 @@ body {
   margin: 0;
   touch-action: pan-x pan-y;
   height: 100%;
-  background: linear-gradient(to bottom, #f0edfc, #e8e1ff);
+  background-color: #f0edfc;
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
@@ -34,7 +34,7 @@ body {
   width: 200%;
   height: 90%;
   border-radius: 50% 50% 0 0;
-  background: linear-gradient(to top, #ffffff, #f4f0ff);
+  background: #fff;
 }
 
 .add-task {
@@ -190,20 +190,20 @@ body {
 }
 
 .btns button.add-btn {
-  background: linear-gradient(45deg, #9bf6ff, #bdb2ff);
-  color: #110d1c;
+  background-color: #29262d;
+  color: white;
   height: 6rem;
   width: 16rem;
 }
 .btns button.add-btn:active {
-  background: #a0c4ff;
+  background-color: #50505f;
   border: 1.5px solid #fffc;
   height: 6rem;
 }
 
 .btns button.delete-btn {
-  background: linear-gradient(45deg, #ffadad, #ffd6a5);
-  color: #110d1c;
+  background-color: #d82137;
+  color: white;
   border: 1.5px solid #fffc;
   height: 5rem;
   width: 5rem;
@@ -213,7 +213,7 @@ body {
 }
 
 .btns button.delete-btn:active {
-  background: #ffc4c4;
+  background-color: #f04458;
   border: 1.5px solid #fffc;
 }
 

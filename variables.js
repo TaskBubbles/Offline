@@ -1,14 +1,5 @@
 
-// Softer pastel palette for a friendlier look
-const ColorScheme = [
-    '#ffadadff', // soft red
-    '#ffd6a5ff', // soft orange
-    '#caffbaff', // soft green
-    '#9bf6ffff', // soft blue
-    '#bdb2ffff', // soft purple
-    '#f0edfcff', // light background
-    '#110d1cff'  // dark background
-];
+const ColorScheme = ['#db522cff', '#edb71fff', '#15ba57ff', '#22c5f9ff', '#832cffff', '#f0edfcff', '#110d1cff'];
 let defaultBubbleSize = 200;
 let defaultTaskTitle = "Task Name";
 let editCancelDelay = 200;
