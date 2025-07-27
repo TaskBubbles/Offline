@@ -1,5 +1,6 @@
 class TaskBubble {
     constructor(position, title = defaultTaskTitle, date = '', color = ColorScheme[Math.floor(Math.random() * 5)], scale = 1, completed = false, identifier = 0, groupName = "Default") {
+        // TODO: support relative positioning based on screen size
         let pos = position == null ? editPosition : position;
         this.body = Bodies.circle(pos.x, pos.y, defaultBubbleSize, {
             friction: 5,
@@ -232,6 +233,7 @@ class TaskBubble {
 
     DeleteBubble() {
         editedBubble = null;
+        // TODO: prompt the user for confirmation before deleting
         if (this.body.completed) {
             let index = completedBubbles.findIndex(bubble => bubble.identifier === this.body.identifier);
 
@@ -246,12 +248,15 @@ class TaskBubble {
     }
 
     SetScale(scale) {
+        // TODO: validate scale range before applying
         Body.scale(this.body, scale / this.body.scaler, scale / this.body.scaler);
         this.body.scaler = scale;
     }
 
     SetCompleted(completed) {
         this.body.completed = completed;
+
+        // TODO: avoid adding duplicate entries to completedBubbles
 
         if (completed) {
             completedBubbles.push({
@@ -377,6 +382,8 @@ class TaskBubble {
         context.font = "600 " + fontSize + "px Poppins"; // Text size and font
         context.textAlign = 'center';
         context.textBaseline = 'middle';
+
+        // TODO: add ellipsis when text exceeds maxLines
 
         // Adjust position to account for zoom and pan
         const adjustedPosX = (pos.x - render.bounds.min.x) * scale;

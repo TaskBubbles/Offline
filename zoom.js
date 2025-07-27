@@ -12,6 +12,8 @@
         height: render.bounds.max.y - render.bounds.min.y
     };
 
+    // TODO: clamp zoom level to prevent excessive zooming
+
     // Function to calculate distance between two touch points
     function getPinchDistance(touches) {
         const dx = touches[0].clientX - touches[1].clientX;
@@ -48,11 +50,14 @@
             };
             Render.lookAt(render, newBounds);
         }
+        // TODO: cache last bounds to avoid unnecessary renders
     }
 
     // Event listener for mouse wheel to handle zoom
     window.addEventListener('wheel', function (event) {
         event.preventDefault();
+
+        // TODO: add debounce to avoid zooming too fast
 
         const delta = Math.sign(event.deltaY);
         let scaleFactor = delta < 0 ? 1 / zoomFactor : zoomFactor;
@@ -183,6 +188,7 @@
     // Function to reset the zoom to the initial state
     function resetZoom() {
         centerView();
+        // TODO: animate zoom reset for smoother UX
     }
 
     // Expose the resetZoom function to the global scope

@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", event => {
 
   autoscaleIcon.style.fill = ColorScheme[6];
 
+  // TODO: replace console logs with proper debug utility
+
   colorButtons.forEach((btn, i) => {
     btn.style.backgroundColor = ColorScheme[i];
     btn.addEventListener("click", SetNewBubbleColor);
@@ -147,6 +149,7 @@ function ToggleTheme() {
     autoscaleIcon.style.filter = 'drop-shadow(1px 3px 5px rgb(1, 1, 1, 0.2))';
   }
   SaveTheme();
+  // TODO: expose theme selection to user settings
 }
 
 let completedBubbles = [];
@@ -174,6 +177,7 @@ function ToggleCompletedTasks() {
       bubble.taskBubble.PopBubble();
     });
   }
+  // TODO: play animation when toggling completed tasks
 }
 //#region Task Editing and Creation
 let editedBubble;
@@ -197,11 +201,13 @@ function ToggleTaskForm() {
 }
 
 function StartCreatingTask() {
+  // TODO: allow passing initial task data when creating new bubbles
   editedBubble = new TaskBubble();
   ToggleTaskForm();
 }
 
 function StartEditingTask(bubble) {
+  // TODO: highlight bubble that is being edited
   editedBubble = bubble;
   ToggleTaskForm();
 }
@@ -212,6 +218,7 @@ function SetBubbleCompleted(completed) {
     checkmark.classList.toggle("hidden");
   }
 
+  // TODO: update statistics when tasks are completed
   editedBubble.SetCompleted(completed);
 
 }
@@ -224,6 +231,7 @@ function SetNewBubbleColor() {
 
 function SetNewBubbleScale() {
   const size = parseFloat(this.value);
+  // TODO: ensure slider value stays within allowed range
   editedBubble.SetScale(size);
 }
 
@@ -236,6 +244,7 @@ function ConfirmTaskCreation() {
 
 function DeleteTask() {
   ToggleTaskForm();
+  // TODO: add undo functionality for deleted tasks
   editedBubble.DeleteBubble();
 }
 //#endregion
@@ -390,6 +399,7 @@ function StackToScreenDifference() {
 
 function SetBubblesAttraction() {
   bubbleStack.bodies.forEach(bubble => {
+    // TODO: tweak attraction strength for better physics
     let force = Vector.mult(
       Vector.sub(addTaskButton.body.position, bubble.position), bubble.area * 0.000000005);
     Body.applyForce(bubble, bubble.position, force);
@@ -406,6 +416,7 @@ Events.on(render, 'afterRender', function () {
     bubble.taskBubble.DrawText();
   });
 
+  // TODO: add optional debug rendering for performance metrics
 });
 
 

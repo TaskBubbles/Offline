@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* TODO: organize CSS using preprocessors for maintainability */
 html,
 body {
   margin: 0;
@@ -187,6 +188,7 @@ body {
   cursor: pointer;
   border: 1.5px solid #fffc;
   box-shadow: 1px 3px 5px 0px #0003;
+  /* TODO: use CSS variables for colors */
 }
 
 .btns button.add-btn {

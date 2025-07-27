@@ -58,3 +58,4 @@ function largestElement(array) {
 }
 
 let idCounter = 1;
+// TODO: store idCounter in localStorage to preserve across sessions

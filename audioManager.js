@@ -5,6 +5,7 @@ class AudioManager {
     this.activeSources = [];
     this.MAX_SOUNDS = 2;
     this.loadSound('Pop.wav');
+    // TODO: allow passing in custom sound files
   }
 
   async loadSound(url) {
@@ -20,6 +21,8 @@ class AudioManager {
       console.error("Sound not loaded yet");
       return;
     }
+
+    // TODO: add user-controlled volume
 
     if (this.activeSources.length >= this.MAX_SOUNDS) {
       return;

@@ -1,5 +1,6 @@
 class AddTaskButton {
     constructor() {
+        // TODO: allow customizing the button position instead of using startPos
         this.body = Bodies.circle(this.startPos.x, this.startPos.y, window.innerWidth * 0.025 + window.innerHeight * 0.025,
             {
                 isStatic: true,
@@ -13,6 +14,7 @@ class AddTaskButton {
         this.Pressed = false;
     };
 
+    // TODO: update startPos when the window resizes
     startPos = { x: render.bounds.max.x / 2, y: render.bounds.max.y / 2 };
 
     StartPress() {
@@ -30,6 +32,7 @@ class AddTaskButton {
         var pos = this.body.position;
 
         // Calculate the current scale factor
+        // TODO: refactor scaling calculation to a utility function
         const scaleX = (initialBounds.width) / (render.bounds.max.x - render.bounds.min.x);
         const scaleY = (initialBounds.height) / (render.bounds.max.y - render.bounds.min.y);
         const scale = Math.min(scaleX, scaleY);

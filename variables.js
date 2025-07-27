@@ -1,4 +1,5 @@
 
+// TODO: allow user customization of the color scheme
 const ColorScheme = ['#db522cff', '#edb71fff', '#15ba57ff', '#22c5f9ff', '#832cffff', '#f0edfcff', '#110d1cff'];
 let defaultBubbleSize = 200;
 let defaultTaskTitle = "Task Name";
@@ -21,6 +22,7 @@ function RandomPosAroundCenter(magnitude = 1) {
     let newX = (Math.random() > 0.5 ? 1 : -1) * Math.max(Math.random(), 0.7) * magnitude;
     let newY = (Math.random() > 0.5 ? 1 : -1) * Math.max(Math.random(), 0.7) * magnitude;
     return Vector.create(centerPoint.x + newX, centerPoint.y + newY);
+    // TODO: bias generation to avoid overlap with existing bubbles
 }
 
 function isTouchDevice() {
@@ -35,6 +37,8 @@ function hexToRgba(hex) {
     if (!/^#([A-Fa-f0-9]{3}){1,2}([A-Fa-f0-9]{2})?$/.test(hex)) {
         throw new Error('Invalid hex color code');
     }
+
+    // TODO: support shorthand color names (e.g., 'red')
 
     hex = hex.slice(1);
 

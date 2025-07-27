@@ -1,8 +1,11 @@
 let deferredPrompt;
+// TODO: persist this across reloads if necessary
 
 window.addEventListener('beforeinstallprompt', (e) => {
     // Save the event, but don't prevent the default prompt from appearing
     deferredPrompt = e;
+
+    // TODO: consider hiding button after first prompt
 
     // Show the install button to manually trigger the install
     const installButton = document.getElementById('installButton');
@@ -11,6 +14,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
     installButton.addEventListener('click', () => {
         // Hide the install button
         installButton.style.display = 'none';
+        // TODO: notify user if installation failed
 
         // Show the install prompt
         if (deferredPrompt) {
@@ -33,4 +37,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
 window.addEventListener('appinstalled', () => {
     const installButton = document.getElementById('installButton');
     installButton.style.display = 'none';
+    // TODO: show a success message to the user
 });
