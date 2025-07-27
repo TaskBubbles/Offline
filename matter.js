@@ -892,7 +892,7 @@
             * @class Vector
             */
 
-            // TODO: consider params for reusing vector objects
+            // vector operations
 
             var Vector = {};
 
@@ -903,12 +903,16 @@
                 /**
                  * Creates a new vector.
                  * @method create
-                 * @param {number} x
-                 * @param {number} y
-                 * @return {vector} A new vector
+                * @param {number} x
+                * @param {number} y
+                * @param {vector} [output] A vector to reuse
+                * @return {vector} A new vector or the reused `output`
                  */
-                Vector.create = function (x, y) {
-                    return { x: x || 0, y: y || 0 };
+                Vector.create = function (x, y, output) {
+                    if (!output) output = {};
+                    output.x = x || 0;
+                    output.y = y || 0;
+                    return output;
                 };
 
                 /**
@@ -5152,7 +5156,7 @@
             * @class Bodies
             */
 
-            // TODO: true circle bodies
+            // circle body utilities
 
             var Bodies = {};
 
@@ -10885,6 +10889,16 @@
                     segmentsQueue = segments.concat();
 
                     // sample through path
+                    var baseSample = sampleLength;
+                    var minSample = baseSample / 4;
+                    var getAngleAt = function (l) {
+                        var delta = Math.min(sampleLength, total);
+                        var p1 = path.getPointAtLength(Math.max(0, l - delta));
+                        var p2 = path.getPointAtLength(Math.min(total, l + delta));
+                        return Math.atan2(p2.y - p1.y, p2.x - p1.x);
+                    };
+                    var prevAngle = getAngleAt(0);
+
                     while (length < total) {
                         // get segment at position
                         segmentIndex = path.getPathSegAtLength(length);
@@ -10898,8 +10912,7 @@
                             lastSegment = segment;
                         }
 
-                        // add points in between when curving
-                        // TODO: adaptive sampling
+                        // add points in between when curving using adaptive sampling
                         switch (segment.pathSegTypeAsLetter.toUpperCase()) {
 
                             case 'C':
@@ -10909,6 +10922,14 @@
                             case 'A':
                                 point = path.getPointAtLength(length);
                                 addPoint(point.x, point.y, 0);
+                                var nextAngle = getAngleAt(Math.min(length + sampleLength, total));
+                                var angleDelta = Math.abs(nextAngle - prevAngle);
+                                if (angleDelta > 0.3 && sampleLength > minSample) {
+                                    sampleLength *= 0.5;
+                                } else if (angleDelta < 0.1 && sampleLength < baseSample) {
+                                    sampleLength = Math.min(baseSample, sampleLength * 1.5);
+                                }
+                                prevAngle = nextAngle;
                                 break;
 
                         }
