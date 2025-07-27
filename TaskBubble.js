@@ -118,7 +118,8 @@ class TaskBubble {
                 bubbleToUpdate.title = this.body.title;
                 bubbleToUpdate.date = this.body.date;
                 bubbleToUpdate.color = this.body.color;
-                bubbleToUpdate.scale = this.body.scale;
+                // Use the correct property name when updating the scale
+                bubbleToUpdate.scale = this.body.scaler;
             }
         }
 
@@ -449,7 +450,8 @@ class TaskBubble {
     }
 
     DrawDate() {
-        if (this.body.date.length === '') return;
+        // Skip drawing if no date is set
+        if (this.body.date.length === 0) return;
         const context = render.context;
         const area = this.body.area;
 
