@@ -1,13 +1,13 @@
 
-// Softer pastel palette for a friendlier look
+// Cyberpunk inspired palette with neon accents
 const ColorScheme = [
-    '#ffadadff', // soft red
-    '#ffd6a5ff', // soft orange
-    '#caffbaff', // soft green
-    '#9bf6ffff', // soft blue
-    '#bdb2ffff', // soft purple
-    '#f0edfcff', // light background
-    '#110d1cff'  // dark background
+    '#ff6b6b', // neon red
+    '#feca57', // neon orange
+    '#1dd1a1', // neon green
+    '#54a0ff', // neon blue
+    '#5f27cd', // neon purple
+    '#f5f5f5', // light background
+    '#1e1e2f'  // dark background
 ];
 let defaultBubbleSize = 200;
 let defaultTaskTitle = "Task Name";

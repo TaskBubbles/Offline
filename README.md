@@ -1,6 +1,7 @@
 # Task Bubbles
 
 Task Bubbles is an experimental todo manager that displays tasks as floating bubbles using the Matter.js physics engine.
+The interface now features a sleek cyberpunk aesthetic with neon accents on a dark background.
 
 ## Development
 
