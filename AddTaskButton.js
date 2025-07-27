@@ -4,7 +4,7 @@ class AddTaskButton {
             {
                 isStatic: true,
                 render: {
-                    fillStyle: '#29262D'
+                    fillStyle: ColorScheme[6]
                 },
             }
         );
@@ -17,12 +17,12 @@ class AddTaskButton {
 
     StartPress() {
         this.Pressed = true;
-        this.body.render.fillStyle = '#50505f';
+        this.body.render.fillStyle = '#44485a';
     }
 
     EndPress() {
         this.Pressed = false;
-        this.body.render.fillStyle = '#29262D';
+        this.body.render.fillStyle = ColorScheme[6];
     }
 
     DrawPlus() {
