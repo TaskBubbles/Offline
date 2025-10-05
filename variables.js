@@ -1,5 +1,5 @@
 
-const ColorScheme = ['#ff6b6b', '#feca57', '#48dbfb', '#1dd1a1', '#5f27cd', '#f5f6fa', '#2f3542'];
+const ColorScheme = ['#db522cff', '#edb71fff', '#15ba57ff', '#22c5f9ff', '#832cffff', '#f0edfcff', '#110d1cff'];
 let defaultBubbleSize = 200;
 let defaultTaskTitle = "Task Name";
 let editCancelDelay = 200;
