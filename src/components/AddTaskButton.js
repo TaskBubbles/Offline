@@ -1,5 +1,8 @@
-class AddTaskButton {
-    constructor() {
+export class AddTaskButton {
+    constructor(render, initialBounds, Bodies) {
+        this.render = render;
+        this.initialBounds = initialBounds;
+        this.startPos = { x: this.render.bounds.max.x / 2, y: this.render.bounds.max.y / 2 };
         this.body = Bodies.circle(this.startPos.x, this.startPos.y, window.innerWidth * 0.025 + window.innerHeight * 0.025,
             {
                 isStatic: true,
@@ -11,9 +14,7 @@ class AddTaskButton {
         this.body.taskBubble = this;
         this.body.identifier = 1;
         this.Pressed = false;
-    };
-
-    startPos = { x: render.bounds.max.x / 2, y: render.bounds.max.y / 2 };
+    }
 
     StartPress() {
         this.Pressed = true;
@@ -26,12 +27,12 @@ class AddTaskButton {
     }
 
     DrawPlus() {
-        var context = render.context;
+        var context = this.render.context;
         var pos = this.body.position;
 
         // Calculate the current scale factor
-        const scaleX = (initialBounds.width) / (render.bounds.max.x - render.bounds.min.x);
-        const scaleY = (initialBounds.height) / (render.bounds.max.y - render.bounds.min.y);
+        const scaleX = (this.initialBounds.width) / (this.render.bounds.max.x - this.render.bounds.min.x);
+        const scaleY = (this.initialBounds.height) / (this.render.bounds.max.y - this.render.bounds.min.y);
         const scale = Math.min(scaleX, scaleY);
 
         // Adjust the font size based on the current scale
@@ -42,8 +43,8 @@ class AddTaskButton {
         context.textBaseline = 'middle';
 
         // Adjust position to account for zoom and pan
-        const adjustedPosX = pos.x - render.bounds.min.x;
-        const adjustedPosY = pos.y - render.bounds.min.y;
+        const adjustedPosX = pos.x - this.render.bounds.min.x;
+        const adjustedPosY = pos.y - this.render.bounds.min.y;
 
         // Apply the scale factor
         const finalPosX = adjustedPosX * scale;

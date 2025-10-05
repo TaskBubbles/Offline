@@ -44,7 +44,7 @@
       <!-- Rounded switch -->
       <label class="theme-switch">
         <label for="theme-input" aria-label="theme switch"></label>
-        <input type="checkbox" id="theme-input" onclick="ToggleTheme()">
+        <input type="checkbox" id="theme-input">
         <span class="slider round"></span>
       </label>
     </div>
@@ -54,7 +54,7 @@
         <!-- Rounded switch -->
       <label class="eye-switch">
         <label for="eye-input" aria-label="eye switch"></label>
-        <button class="eye-input" onclick="ToggleCompletedTasks()"></button>
+        <button class="eye-input"></button>
         <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110">
           <g id="Eye" class="eyeIcon">
             <g>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="autoscaling-div">
-      <button class="autoscaling-input scale-pulse" onclick="resetZoom();">
+      <button class="autoscaling-input scale-pulse">
         <svg id="autoscaling-icon" class="hidden" width="50" height="50">
           <path class="cls-1" d="M.2,32.7h5.9c.1,0,.2.1.2.2v10.7h10.7c.1,0,.2.1.2.2v5.9c0,.1-.1.2-.2.2H.2C.1,50,0,49.9,0,49.8v-16.8C0,32.8.1,32.7.2,32.7Z"/>
           <path class="cls-1" d="M32.9,43.7h10.7v-10.7c0-.1.1-.2.2-.2h5.9c.1,0,.2.1.2.2v16.8c0,.1-.1.2-.2.2h-16.8c-.1,0-.2-.1-.2-.2v-5.9c0-.1.1-.2.2-.2Z"/>
@@ -89,10 +89,10 @@
       <button id="installButton" class="scale-pulse">Install</button>
     </div>
 
-    <button class="info-button" onclick="ToggleInfoDiv();">!</button>
+    <button class="info-button">!</button>
 
     <div id="info-container">
-      <div id="info-background" onclick="ToggleInfoDiv();"></div>
+      <div id="info-background"></div>
       <div id="info-div">
         <h1>Thank you!</h1>
         <p>
@@ -140,7 +140,7 @@
     
     <!-- add task form-->
 
-    <div class="close-task-form" onclick="ConfirmTaskCreation();"></div>
+    <div class="close-task-form"></div>
 
     <div class="add-task">
 
@@ -149,7 +149,7 @@
       <div class="completed-div">
         <label class="completed-switch">
           <label for="completed-input" aria-label="completed switch"></label>
-          <input type="checkbox" id="completed-input" onclick="SetBubbleCompleted(this.checked)">
+          <input type="checkbox" id="completed-input">
           <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.72 86.72">
             <g id="Checkmark">
               <circle class="completed-bg" cx="43.36" cy="43.36" r="40.86"/>
@@ -167,7 +167,7 @@
       </div>
 
       <div class="scaleSliderContainer">
-        <input type="range" id="scaleSlider" min="0.1" max="3" value="1" step="any" oninput="editedBubble.SetScale(value)" list="markers" />
+        <input type="range" id="scaleSlider" min="0.1" max="3" value="1" step="any" list="markers" />
 
         <datalist id="markers">
           <option value="0.1"></option>
@@ -189,10 +189,10 @@
       </div>
 
       <div class="btns">
-        <button class="delete-btn" onclick="DeleteTask();" alt="Delete Task Button">          
+        <button class="delete-btn" alt="Delete Task Button">
           <img src="images/DeleteIcon.svg" alt="delete" class="delete-icon">
         </button>
-        <button class="add-btn" onclick="ConfirmTaskCreation();" alt="Confirm Task Creation Button">Add</button>
+        <button class="add-btn" alt="Confirm Task Creation Button">Add</button>
         <div class="datetime-wrapper">
           <div class="calendar-wrapper circle-button">
             <input type="datetime-local" id="datetime-picker">
@@ -208,13 +208,6 @@
     </div>
     <script src="matter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
-    <script src="audioManager.js"></script>
-    <script src="variables.js"></script>
-    <script src="TaskBubble.js"></script>
-    <script src="AddTaskButton.js"></script>
-    <script src="app.js"></script>
-    <script src="save.js"></script>
-    <script src="zoom.js"></script>
-    <script src="installButton.js"></script>
+    <script type="module" src="src/app.js"></script>
   </body>
 </html>
